@@ -1,0 +1,202 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+		<meta charset="UTF-8">
+		<link rel="apple-touch-icon" sizes="57x57" href="{% static "apple-icon-57x57.png"%} ">
+<link rel="apple-touch-icon" sizes="60x60" href="{% static "apple-icon-60x60.png"%} ">
+<link rel="apple-touch-icon" sizes="72x72" href="{% static "apple-icon-72x72.png"%} ">
+<link rel="apple-touch-icon" sizes="76x76" href="{% static "apple-icon-76x76.png"%} ">
+<link rel="apple-touch-icon" sizes="114x114" href="{% static "apple-icon-114x114.png"%} ">
+<link rel="apple-touch-icon" sizes="120x120" href="{% static "apple-icon-120x120.png"%} ">
+<link rel="apple-touch-icon" sizes="144x144" href="{% static "apple-icon-144x144.png"%} ">
+<link rel="apple-touch-icon" sizes="152x152" href="{% static "apple-icon-152x152.png"%} ">
+<link rel="apple-touch-icon" sizes="180x180" href="{% static "apple-icon-180x180.png"%} ">
+<link rel="icon" type="image/png" sizes="192x192" href="{% static "android-icon-192x192.png"%} ">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon-32x32.png"%} ">
+<link rel="icon" type="image/png" sizes="96x96" href="{% static "favicon-96x96.png"%} ">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon-16x16.png"%} ">
+<link rel="manifest" href="{% static "manifest.json"%}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+	<title>Мои Контакты</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Caveat|Concert+One|Vollkorn:700&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" href="{% static "user-card.css" %}">
+	<link rel="stylesheet" href="{% static "normalize.css" %}">
+</head>
+<body >
+	<div class="page-wrapper" >
+
+		<div class="card-wrapper">
+			<div class="card-intro-bg bg1"></div>
+				<div class="card-wrapper-inner">
+				<div class="card-intro">
+					<div class="card-intro-content">
+						<h2 class="slideDown">Привет! Привіт! Hello!</h2>
+						<h2 class="slideDown"> {{ BASE_DIR }} </h2>
+						<p id="her" class="slideDown">Внизу выберите удобный для вас способ связи!</p>
+					</div>
+				</div>
+				<div class="mssgme-card slideDown">
+					<div class="mssgme-card-header clearfix">
+						<div class="mssgme-card-header-photo">
+							<img src="{% static "56927_1503837902.jpg" %}" alt="Олег У.">
+						</div>
+						<div class="mssgme-card-header-content">
+							<div class="mssgme-card-header-content-container">
+								<h1>Олег Уваркин</h1>
+								<p>"Looking for a job"</p>
+							</div>
+						</div>
+					</div>
+					<ul class = 'mssgme-card-messengers-list clearfix messengers-count-6'>		<li class="whatsapp">
+			<a href="https://wa.me/380675796388" target="_blank" data-messenger="whatsapp">
+				<img src="{% static "whatsapp.svg" %}" alt="whatsapp icon">
+				<span></span>
+			</a>
+		</li>
+					<li class="telegram">
+			<a href="https://t.me/user380675796388" target="_blank" data-messenger="telegram">
+				<img src="{% static "telegram.svg" %}" alt="telegram icon">
+				<span></span>
+			</a>
+		</li>
+					<li class="viber">
+			<a href="viber://pa?chatURI=+380675796388" target="_blank" data-messenger="viber">
+				<img src="{% static "viber.svg" %}" alt="viber icon">
+				<span></span>
+			</a>
+		</li>
+					<li class="messenger">
+			<a href="tel:+380675796388" target="_blank" data-messenger="messenger">
+				<img src="{% static "phone.svg" %} " alt="messenger icon">
+				<span></span>
+			</a>
+		</li>
+					<li class="Gmail">
+			<a href="mailto:uvarkinart@gmail.com" target="_blank" data-messenger="vk">
+				<img src="{% static "Gmail.svg" %}" alt="vk icon">
+				<span></span>
+			</a>
+		</li>
+					<li class="Instagram">
+			<a href="http://instagram.com/uvarkinart" target="_blank" data-messenger="skype">
+				<img src="{% static "Instagram.svg" %}" alt="Instagram icon">
+				<span></span>
+			</a>
+		</li>
+			</ul>
+				</div>
+
+				<div class="card-footer-logo-container slideDown">
+					<a href="https://drive.google.com/file/d/1c2xFBwVJ92hc2340zQvGmpFhmft-vRZB/view?usp=sharing" class="linka">
+						<button class="btn-hover color-9">МОЁ РЕЗЮМЕ</button>
+					</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+			try {
+			function setBackgroundHeight() {
+				var introHeight = document.querySelector('.card-intro').clientHeight;
+				document.querySelector('.card-intro-bg').style.height = introHeight + 'px';
+			}
+
+			function fadeIntro() {
+				var cardIntro = document.querySelector('.card-intro');
+
+				if ( document.querySelector('.card-wrapper-inner').scrollTop > 0 &&  document.querySelector('.card-wrapper-inner').scrollTop < cardIntro.clientHeight ) {
+					var opacity = document.querySelector('.card-wrapper-inner').scrollTop/cardIntro.clientHeight;
+
+					if ( opacity <= 1 ) {
+						cardIntro.style.opacity = 1 - opacity;
+						cardIntro.style.transform = 'translateY(' + opacity*50 + 'px)';
+					}
+				} else if ( document.querySelector('.card-wrapper-inner').scrollTop <= 0 ) {
+					cardIntro.style.opacity = 1;
+					cardIntro.style.transform = 'translateY(0)';
+				} else {
+					cardIntro.style.opacity = 0;
+				}
+			}
+
+			function toggleButtons(){
+				var buttonsList = document.querySelector('.mssgme-links-list'),
+					toggleBtn = document.querySelector('#expand_btns_btn'),
+					moreText = toggleBtn.getAttribute('data-more-text'),
+					lessText = toggleBtn.getAttribute('data-less-text');
+
+				if ( buttonsList.classList.contains('more') ) {
+					buttonsList.classList.remove('more');
+					toggleBtn.textContent = moreText;
+				} else {
+					buttonsList.classList.add('more');
+					toggleBtn.textContent = lessText;
+				}
+			}
+
+			// No bounce background function
+			function noBounceBg() {
+				if ( window.outerWidth < 768 ) {
+					document.querySelector('body').insertBefore( document.querySelector('.card-intro-bg'), document.querySelector('body').firstChild );
+				} else {
+					document.querySelector('.card-wrapper').insertBefore( document.querySelector('.card-intro-bg'), document.querySelector('.card-wrapper').firstChild );
+				}
+			}
+
+			// Animate elements function
+			function animateCardElements() {
+				setTimeout(function(){
+					document.querySelector('.card-intro-bg').classList.add('animated');
+					[].map.call(document.querySelectorAll('.slideDown'), function(el) {
+						el.classList.add('animated');
+					});
+				}, 100);
+			}
+
+			// On load
+			document.addEventListener('DOMContentLoaded', function(){
+				setBackgroundHeight();
+				noBounceBg();
+				animateCardElements();
+			});
+
+			// On resize
+			window.addEventListener('resize', function(){
+				setBackgroundHeight();
+				noBounceBg();
+			});
+
+			// On scroll
+			document.querySelector('.card-wrapper-inner').onscroll = function() {
+				fadeIntro();
+			};
+
+				var messengerList = document.querySelectorAll('.mssgme-card-messengers-list a');
+				for (var i = 0; i < messengerList.length; i++) {
+					messengerList[i].addEventListener('click', function(e) {
+						var messenger = this.getAttribute('data-messenger');
+						msa('click_messenger', '56927', { category: messenger });
+					});
+				}
+
+				var linkList = document.querySelectorAll('.mssgme-links-list a');
+				for (var i = 0; i < linkList.length; i++) {
+					linkList[i].addEventListener('click', function() {
+						var linkUrl = this.getAttribute('data-url');
+						msa('click_link', '56927', { category: linkUrl });
+					});
+				}
+			} catch (e) {
+				if ('console' in window) console.error(e);
+			}
+		</script>
+</body>
+</html>
+
